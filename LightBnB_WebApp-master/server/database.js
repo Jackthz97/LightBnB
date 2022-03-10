@@ -66,7 +66,7 @@ const addUser =  function(user) {
     .query(`INSERT INTO users (name, email, password)
     VALUES ($1, $2, $3) RETURNING *;`, [user.name, user.email, user.password])
     .then((result) => {
-      console.log(result.rows[0], "just created a account");
+      console.log(result.rows[0].name, "just created a account");
       return result.rows[0];
     })
     .catch((err) => {
